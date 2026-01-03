@@ -10,12 +10,21 @@ export function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="relative p-2 rounded-full border border-input bg-background/50 hover:bg-accent hover:text-accent-foreground transition-colors glass"
+            className="group relative p-2 md:px-4 md:py-2 rounded-sm border border-primary/30 bg-black/40 hover:bg-primary/20 transition-all overflow-hidden flex items-center gap-3"
             aria-label="Toggle theme"
         >
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute top-2 left-2 h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
+            {/* Tech decoration corners */}
+            <div className="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r border-primary/50 group-hover:border-neon-cyan transition-colors" />
+            <div className="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l border-primary/50 group-hover:border-neon-cyan transition-colors" />
+
+            <div className="relative w-4 h-4">
+                <Sun className="absolute inset-0 h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-amber-500" />
+                <Moon className="absolute inset-0 h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-cyan-400" />
+            </div>
+
+            <span className="hidden md:block text-[10px] font-mono font-bold tracking-widest text-muted-foreground group-hover:text-primary uppercase">
+                {theme === 'dark' ? 'Night_Ops' : 'Day_Ops'}
+            </span>
         </button>
     )
 }
