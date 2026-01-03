@@ -53,6 +53,10 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
+      <div className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
       <div className="relative z-10 container mx-auto px-4 py-12 flex flex-col items-center gap-12">
         {/* Hero Section */}
         <div className="text-center space-y-6 max-w-3xl mx-auto mt-10">
